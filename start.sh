@@ -11,7 +11,10 @@ baseDir="$GHOST_INSTALL/content.orig"
 		fi
 	done
 
+sed -i 's/discounts,/discounts,\n      automatic_tax: { enabled: true },/' /var/lib/ghost/current/node_modules/@tryghost/members-stripe-service/lib/StripeAPI.js
+
 # update the URL
 node updateConfig.js
 
 node current/index.js
+
